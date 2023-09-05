@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
+
+:root {
+  --primary-color: #1aac83;
+  --error: #e7195a;
+}
+
+body {
+ align-items: center;
+}
+
+.book-details {
+  background: #fff;
+  border-radius: 4px;
+  margin: 20px auto;
+  padding: 20px;
+  position: relative;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.25);
+}
+
+.book-details h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
+  color: var(--primary-color);
+}
+
+.book-details p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.book-details span {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background: #fafafa;
+  padding: 6px;
+  border-radius: 10%;
+  color: #df1010;
+}
+
+.home {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 100px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.nav-Link {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  font-size: 15;
+  font-family: sans-serif;
+}
+
+label, input{
+  display: block;
+}
+input {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+form button {
+ background: var(--primary-color);
+ border: 0;
+ color: #fff;
+ padding: 10px;
+ font-family: "Poppins";
+ border-radius: 4px;
+ cursor: pointer;
+}
+form button:hover {
+  background-color: #0056b3;
+}
+div.error {
+ padding: 10px;
+ background: #ffefef;
+ border: 1px solid var(--error);
+ color: var(--error);
+ border-radius: 4px;
+ margin: 20px 0;
+}
+input.error {
+  border: 1px solid var(--error);
+}
