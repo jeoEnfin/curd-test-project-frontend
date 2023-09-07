@@ -7,14 +7,13 @@ const BookForm = () => {
     const [auther, setAuther] = useState('')
     const [year,setYear] = useState('')
     const [price, setPrice] = useState('')
-    const [status, setStatus] = useState('')
     const [error, setError] = useState('')
     const [emptyFields, setEmptyFields] = useState([])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const book = {bookName,auther,year,price,status}
+        const book = {bookName,auther,year,price}
         const response = await fetch('http://localhost:4000/api/books', {
             method: 'POST',
             body: JSON.stringify(book),
@@ -30,7 +29,6 @@ const BookForm = () => {
             setAuther('')
             setYear('')
             setPrice('')
-            setStatus('')
             setError(null)
             setEmptyFields([])
             console.log('new workout created',json)
@@ -50,13 +48,10 @@ const BookForm = () => {
      type='text' value={auther} onChange={(e) => setAuther(e.target.value)}/>
     <label>Year: </label>
     <input className={emptyFields.includes('year') ? 'error' : ''} 
-    type='number' value={year} onChange={(e) => setYear(e.target.value)}/>
+    type='number' min={1000} max={9999} value={year} onChange={(e) => setYear(e.target.value)}/>
      <label>Price: </label>
     <input className={emptyFields.includes('price') ? 'error' : ''} 
     type='number' value={price} onChange={(e) => setPrice(e.target.value)}/>
-     <label>Status: </label>
-     <input className={emptyFields.includes('status') ? 'error' : ''} 
-    type='number' value={status} onChange={(e) => setStatus(e.target.value)}/>
 
     <button type='submit'>Add Book</button>
     {error && <div className='error'>{error}</div>}

@@ -3,7 +3,7 @@ import React from 'react';
 //import { useBookContext } from '../hooks/useBookContext';
 
 
-const BooksDetails = ({book}) => {
+const BooksDetails = ({book,click}) => {
 
   //const {dispatch} = useBookContext();
 
@@ -21,8 +21,8 @@ const BooksDetails = ({book}) => {
   }
 
   return (
-    <div className='book-details'>
-        <h4><strong>Book Name :</strong>{book.bookName}</h4>
+    <div onClick={click} className='book-details'>
+        <h4>{book.bookName}</h4>
         <p><strong>Auther : </strong>{book.auther}</p>
         <p><strong>year : </strong>{book.year}</p>
         <p><strong>Price : </strong>{book.price}</p>
