@@ -19,7 +19,7 @@ function BookModal({ isOpen, onRequestClose, onSubmit ,data}) {
 
   const handleSubmit =  async (e) => {
     e.preventDefault();
-    const response = await fetch(`http://localhost:4000/api/books/${data._id}`, {
+    const response = await fetch(`http://localhost:4000/api/books/updateBook/${data._id}`, {
         method: 'PATCH',
         body: JSON.stringify(formData),
         headers: { 'Content-Type': 'application/json' }
@@ -79,7 +79,7 @@ function BookModal({ isOpen, onRequestClose, onSubmit ,data}) {
           />
         </div>
         <div>
-          <label>Status: {data.status == '1'? 'Active': 'Not Active'}</label>
+          <label>Status: {data.status === 1? 'Active': 'Not Active'}</label>
         </div>
         <button type="submit">Update Book</button>
       </form>

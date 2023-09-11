@@ -15,10 +15,8 @@ function Home() {
     const [searchTerm, setSearchTerm] = useState("");
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [page, setPage] = useState(1);
-    const [pages, setPages] = useState('');
     const [noData, setNoData] = useState('');
     const [limit, setLimit] = useState('');
-    const [data, setData] = useState('');
 
     const handleAddBook = (formData) => {
         setIsModalOpen(false);
@@ -31,16 +29,13 @@ function Home() {
                 const response = await axios.get(`http://localhost:4000/api/books?page=${page}`);
                 console.log("Books API Response: ", response.data);
                 const json = JSON.stringify(response.data);
-                setData(response.data)
                 setBooks(response.data.books);
                 setPage(response.data.page);
-                setPages(response.data.pages);
                 setNoData(response.data.total);
                 setLimit(response.data.limit);
 
                 console.log(json);
-                // if(response.ok){
-                // dispatch({type: 'SET_BOOKS', payload: response.data});}
+                
 
             } catch (error) {
                 console.error("Error fetching books:", error);
@@ -73,20 +68,20 @@ function Home() {
                 onlyPageNumbers={true}
                 pageNeighbours={1}
                 customClassNames={{
-                    rpbItemClassName:'custom-item',
-                    rpbItemClassNameActive:'custom-item--active',
+                    rpbItemClassName: 'custom-item',
+                    rpbItemClassNameActive: 'custom-item--active',
                     rpbGoItemClassName: 'custom-go-item',
-                    rpbItemClassNameDisable: 'custom-item--disable', 
+                    rpbItemClassNameDisable: 'custom-item--disable',
                     rpbProgressClassName: 'custom-progress-bar',
                     rpbRootClassName: 'custom-root',
-                  }}
+                }}
             />
-            <div>
+            <div className='list-container'>
                 {filteredBooks.map(book => (
                     <BooksDetails key={book._id} book={book} click={() => { setIsModalOpen(true); setBook(book) }} />
                 ))}
             </div>
-            
+
             <BookModal
                 isOpen={isModalOpen}
                 onRequestClose={() => setIsModalOpen(false)}

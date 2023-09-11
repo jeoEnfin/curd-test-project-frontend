@@ -14,7 +14,7 @@ const BookForm = () => {
         e.preventDefault()
 
         const book = {bookName,auther,year,price}
-        const response = await fetch('http://localhost:4000/api/books', {
+        const response = await fetch('http://localhost:4000/api/books/create', {
             method: 'POST',
             body: JSON.stringify(book),
             headers: { 'Content-Type': 'application/json' }
